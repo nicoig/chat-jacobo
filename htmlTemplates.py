@@ -54,3 +54,16 @@ user_template = '''
     <div class="message">{{MSG}}</div>
 </div>
 '''
+
+scroll_js = """
+<script>
+// Get scroll position from session storage and scroll to it
+const scrollY = sessionStorage.getItem('scrollY')
+if (scrollY) window.scrollTo(0, parseInt(scrollY))
+
+// Store scroll position in session storage when user scrolls
+window.addEventListener('scroll', () => {
+  sessionStorage.setItem('scrollY', window.scrollY)
+})
+</script>
+"""
